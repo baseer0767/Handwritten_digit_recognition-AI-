@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Condition Checker</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+</head>
+<body>
+    <h1>Enter Values</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Check Conditions">
+    </form>
+
+    {% if output %}
+        <div class="output-container">
+            <h2>Output:</h2>
+            <p>{{ output }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
